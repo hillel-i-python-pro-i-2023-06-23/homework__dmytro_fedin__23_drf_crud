@@ -4,6 +4,7 @@
 # Exclude files/foldeers needed for docker
 !apps/
 !core/
+!crud
 !manage.py
 !Makefile
 !docker/app/

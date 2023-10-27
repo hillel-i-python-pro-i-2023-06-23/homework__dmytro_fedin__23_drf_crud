@@ -27,5 +27,7 @@ USER ${USER}
 VOLUME ${WORKDIR}/db
 VOLUME ${WORKDIR}/logs
 
-ENTRYPOINT ["python", "run.py"]
+ENTRYPOINT ["python", "manage.py"]
+
+CMD ["runserver", "0.0.0.0:8000"]
 
