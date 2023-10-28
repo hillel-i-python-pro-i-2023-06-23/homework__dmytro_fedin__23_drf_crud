@@ -20,7 +20,7 @@ RUN pip install --upgrade pip && \
 COPY --chown=${USER} ./Makefile Makefile
 COPY --chown=${USER} ./manage.py manage.py
 COPY --chown=${USER} ./core core
-COPY --chown=${USER} ./crud crud
+COPY --chown=${USER} ./api api
 
 USER ${USER}
 

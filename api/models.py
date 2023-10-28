@@ -17,4 +17,4 @@ class Contact(models.Model):
 
     # Get metadata from model (sort by newest record)
     class Meta:
-        ordering = ["-modified_at", "name"]
+        ordering = ["name"]
