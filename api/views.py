@@ -14,7 +14,7 @@ def api_overview(request):
         'Create': '/create',
         'Read': 'all/',
         'Update': '/update/pk',
-        'Delete': '/item/pk/delete'
+        'Delete': '/contact/pk/delete'
     }
 
     return Response(api_urls)
