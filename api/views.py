@@ -8,24 +8,19 @@ from .models import Contact
 from .serializers import ContactSerializer
 
 
-@api_view(['GET'])
+@api_view(["GET"])
 def api_overview(request):
-    api_urls = {
-        'Create': '/create',
-        'Read': 'all/',
-        'Update': '/update/pk',
-        'Delete': '/contact/pk/delete'
-    }
+    api_urls = {"Create": "/create", "Read": "all/", "Update": "/update/pk", "Delete": "/contact/pk/delete"}
 
     return Response(api_urls)
 
 
-@api_view(['POST'])
+@api_view(["POST"])
 def add_contact(request):
     item = ContactSerializer(data=request.data)
 
     if Contact.objects.filter(**request.data).exists():
-        raise serializers.ValidationError('This data already exists')
+        raise serializers.ValidationError("This data already exists")
 
     if item.is_valid():
         item.save()
@@ -34,7 +29,7 @@ def add_contact(request):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 
-@api_view(['GET'])
+@api_view(["GET"])
 def view_contacts(request):
     if request.query_params:
         contacts = Contact.objects.filter(**request.query_params.dict())
@@ -48,7 +43,7 @@ def view_contacts(request):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 
-@api_view(['POST'])
+@api_view(["POST"])
 def update_contacts(request, pk):
     contact = Contact.objects.get(pk=pk)
     data = ContactSerializer(instance=contact, data=request.data)
@@ -60,7 +55,7 @@ def update_contacts(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
 
-@api_view(['DELETE'])
+@api_view(["DELETE"])
 def delete_contacts(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
     contact.delete()
