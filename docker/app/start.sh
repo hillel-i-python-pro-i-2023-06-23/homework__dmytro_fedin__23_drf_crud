@@ -15,10 +15,7 @@ set -o xtrace
 # Apply database migrations.
 make migrate
 
-## Generate users
-#make init_user_data
-#
-## Auto generation of contacts
+# Auto generation of contacts
 #make init_contact_data
 
 # Run application.

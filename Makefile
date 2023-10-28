@@ -67,3 +67,9 @@ pre-commit-run-all:
 # Migrate
 migrate:
 	@python manage.py migrate
+
+
+#.PHONY: init_contact_data
+## Create contacts and superuser
+#init_contact_data:
+#	@python manage.py init_contact_data

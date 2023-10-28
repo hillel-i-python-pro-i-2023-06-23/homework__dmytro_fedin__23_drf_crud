@@ -11,9 +11,8 @@ from .serializers import ContactSerializer
 @api_view(['GET'])
 def api_overview(request):
     api_urls = {
-        'all_contacts': '/',
-        'Get by Name': '/?name=name',
-        'Add': '/create',
+        'Create': '/create',
+        'Read': 'all/',
         'Update': '/update/pk',
         'Delete': '/item/pk/delete'
     }
